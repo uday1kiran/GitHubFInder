@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 export class Search extends Component {
     state={
         text:''
     }
-    
+    static propTypes={
+        searchUsers: PropTypes.func.isRequired,//ptfr shortcut
+    }
     //if we don't use arrow function then we need to bind this/event object to the function explicitly
     onSubmit(e){
         e.preventDefault();
-        console.log(this.state.text);
+        //a way to send props back to App.js
+        this.props.searchUsers(this.state.text);
     }
 
     onChange = (e) =>{

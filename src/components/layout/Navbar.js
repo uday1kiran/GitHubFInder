@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 const Navbar=({icon,title})=>{
  return (
-            <nav className="navbar bg-primary">
+            <nav className="navbar navbar-light bg-light">
                 <h1>
                     <i className={icon}/>
         {title}

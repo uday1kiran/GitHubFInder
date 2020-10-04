@@ -1,20 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class UserItem extends Component {
+const UserItem = ({user:{ login,avatar_url,html_url }}) => {
    
-
-    state={
-        //below details of url grablled from https://api.github.com/users
-        id: 'id',
-        login:'mojombo',
-        avatar_url:'https://avatars0.githubusercontent.com/u/l?v=4',
-        html_url: 'https://github.com/mojombo'
-    };
-
-
-    render() {
-        const { login,avatar_url,html_url }= this.props.user;
-
         return (
            
            <div className="card text-center">
@@ -22,8 +10,12 @@ class UserItem extends Component {
         <h3>{login}</h3>
         <div><a href={html_url} className="btn btn-dark btn-sm my-1">More</a></div>
             </div>
-        )
-    }
+        );
+    
 }
+
+UserItem.propTypes={
+    user: PropTypes.object.isRequired//ptor shortcut
+};
 
 export default UserItem
